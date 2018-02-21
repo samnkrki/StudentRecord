@@ -69,9 +69,6 @@ export class NavComponent implements OnInit {
     }
 
     home() {
-        this.router.navigate([''])
-    }
-    away() {
         this.router.navigate(['home'])
     }
 }

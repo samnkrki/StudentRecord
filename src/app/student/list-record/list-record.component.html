@@ -1,5 +1,4 @@
-<div fxLayout="row" fxLayoutAlign="center center" fxFlex="80">
-
+<div fxLayout="column" fxLayoutAlign="space around center" fxFlex="100">
   <mat-card class="example-card">
 
     <mat-card-title>Student's list of Records</mat-card-title>
@@ -7,7 +6,7 @@
     <mat-card-content>
       <mat-list>
         <mat-list-item *ngFor="let student of students">
-          <img matListAvatar src="{{staticUrl}}{{student.image}}" alt="...">
+        <img matListAvatar src="{{ staticUrl }}{{student.image}}" alt="...">
           <h3 matLine>{{student.firstName}} </h3>
           <h4 matLine>
             <strong>{{student.lastName}}</strong>
@@ -27,3 +26,4 @@
     </mat-card-content>
   </mat-card>
 </div>
+
