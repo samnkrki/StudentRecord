@@ -1,29 +1,29 @@
-<div fxLayout="row" fxLayoutAlign="center center">
+<div fxLayout="row" fxLayoutAlign="center center" fxFlex="80">
 
-    <mat-card fxFlex="80" class="card">
+  <mat-card class="example-card">
 
-        <mat-card-title>Student's list of Records</mat-card-title>
+    <mat-card-title>Student's list of Records</mat-card-title>
 
-        <mat-card-content>
-            <mat-list>
-                <mat-list-item *ngFor="let student of students">
-                    <img matListAvatar src="{{staticUrl}}{{student.image}}" alt="...">
-                    <h3 matLine>{{student.firstName}} </h3>
-                    <h4 matLine>
-                        <strong>{{student.lastName}}</strong>
-                    </h4>
-                    <p matLine>
-                        <span class="demo-2">{{student._id}} </span>
-                        <br>
-                        <span class="demo-2">Email: {{student.email}} </span>
-                        <br>
-                        <span class="demo-2">Roll number: {{student.roll}} </span>
-                    </p>
-                    <p matLine>
-                        <button mat-raised-button (click)="viewAll(student._id)">View All</button>
-                    </p>
-                </mat-list-item>
-            </mat-list>
-        </mat-card-content>
-    </mat-card>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let student of students">
+          <img matListAvatar src="{{staticUrl}}{{student.image}}" alt="...">
+          <h3 matLine>{{student.firstName}} </h3>
+          <h4 matLine>
+            <strong>{{student.lastName}}</strong>
+          </h4>
+          <p matLine>
+            <span class="demo-2">{{student._id}} </span>
+            <br>
+            <span class="demo-2">Email: {{student.email}} </span>
+            <br>
+            <span class="demo-2">Roll number: {{student.roll}} </span>
+          </p>
+          <p matLine>
+            <button mat-raised-button (click)="viewAll(student._id)">View All</button>
+          </p>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
 </div>
