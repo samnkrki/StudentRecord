@@ -12,6 +12,7 @@ import { AuthGuard } from './auth/services/guard.service';
 import { MaterialModule } from './shared/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
+import { StudentModule } from './student/student.module';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { HomeComponent } from './home/home.component';
         AuthModule,
         MaterialModule,
         FlexLayoutModule,
+        StudentModule,
 
     ],
     providers: [BaseService,AuthService,AuthGuard],

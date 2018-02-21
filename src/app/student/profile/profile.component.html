@@ -1,3 +1,49 @@
-<p>
-  profile works!
-</p>
+<div fxLayout="row" fxLayoutAlign="center center" *ngFor="let student of students">
+  <mat-card fxFlex="80" class="card">
+    <mat-card-header>
+      <mat-card-title>{{student.firstName}}{{student.lastName}}</mat-card-title>
+      <mat-card-subtitle>Student</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{staticUrl}}{{student.image}}" alt={{student.firstName}}{{student.lastName}}>
+    <mat-card-content>
+      <p>
+        <span class="demo-2">
+          <h3>{{student._id}}</h3>
+        </span>
+        <br>
+        <span class="demo-2">
+          <h3>Email: {{student.email}}</h3>
+        </span>
+        <br>
+        <span class="demo-2">
+          <h3>Phone: {{student.phone}}</h3>
+        </span>
+        <br>
+        <span class="demo-2">
+          <h3>Gender: {{student.gender}}</h3>
+        </span>
+        <br>
+        <span class="demo-2">
+          <h3>Birth date: {{student.dob| date : "dd.MM.y"}}</h3>
+        </span>
+        <br>
+        <span class="demo-2">
+          <h3>Roll Number: {{student.roll}}</h3>
+        </span>
+        <br>
+        <span class="demo-2">
+          <h3>Guardian's name: {{student.guardianName}}</h3>
+        </span>
+        <br>
+        <span class="demo-2">
+          <h3>Guardian's phone number: {{student.guardianNum}}</h3>
+        </span>
+        <br>
+        <span class="demo-2">
+          <h3>Record created by: {{student.createdBy}}</h3>
+        </span>
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+</div>
