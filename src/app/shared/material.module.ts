@@ -1,10 +1,85 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {
+    MatCheckboxModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    MatSliderModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatTabsModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatChipsModule,
+    MatIconModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatDialogModule,
+    MatTooltipModule,
+    MatSnackBarModule,
+    MatRadioModule
+} from '@angular/material';
+
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: []
+    imports: [
+        MatButtonModule,
+        MatCheckboxModule,
+        MatInputModule,
+        MatAutocompleteModule,
+        MatSelectModule,
+        MatSliderModule,
+        MatMenuModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatListModule,
+        MatGridListModule,
+        MatCardModule,
+        MatTabsModule,
+        MatButtonToggleModule,
+        MatChipsModule,
+        MatIconModule,
+        MatNativeDateModule,
+        MatDatepickerModule,
+        MatProgressSpinnerModule,
+        MatProgressBarModule,
+        MatDialogModule,
+        MatTooltipModule,
+        MatSnackBarModule,
+        MatRadioModule
+    ],
+    exports: [
+        MatButtonModule,
+        MatCheckboxModule,
+        MatInputModule,
+        MatAutocompleteModule,
+        MatSelectModule,
+        MatSliderModule,
+        MatMenuModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatListModule,
+        MatGridListModule,
+        MatCardModule,
+        MatTabsModule,
+        MatButtonToggleModule,
+        MatChipsModule,
+        MatIconModule,
+        MatNativeDateModule,
+        MatDatepickerModule,
+        MatProgressSpinnerModule,
+        MatProgressBarModule,
+        MatDialogModule,
+        MatTooltipModule,
+        MatSnackBarModule,
+        MatRadioModule
+    ],
+
 })
 export class MaterialModule { }
