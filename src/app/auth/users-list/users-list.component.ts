@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User, UserService } from '../services/user.service';
+import { MatDialog } from '@angular/material';
+import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 
 @Component({
     selector: 'app-users-list',
@@ -11,7 +13,7 @@ export class UsersListComponent implements OnInit {
     userInfo: any = []
     public user: User = new User({})
 
-    constructor(public userService: UserService) {
+    constructor(public userService: UserService,public dialog:MatDialog) {
     }
 
     ngOnInit() {
@@ -27,6 +29,22 @@ export class UsersListComponent implements OnInit {
             }, e => {
                 console.log(e)
             })
+    }
+
+    update(user,i) {
+        let data = {};
+        Object.assign(data, user)
+        let dialogRef = this.dialog.open(UserDialogComponent, {
+            width: '450px',
+            data: data
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.userInfo.splice(i, 1, result);
+            }
+        });
+
     }
 
 }

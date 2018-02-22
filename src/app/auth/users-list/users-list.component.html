@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayoutAlign="center center" fxFlex="100">
-    
+
   <div *ngIf="isLoading">
     <mat-spinner></mat-spinner>
   </div>
@@ -16,12 +16,23 @@
           <th>Name</th>
           <th>Email</th>
           <th>UserType</th>
+          <th>User Definition</th>
+          <th>Edit Type</th>
         </tr>
-        <tr *ngFor="let user of userInfo">
+        <tr *ngFor="let user of userInfo;let i = index">
           <td>{{user._id}}</td>
           <td>{{user.name}}</td>
           <td>{{user.email}}</td>
           <td>{{user.userType}}</td>
+          <td>
+            <mat-chip-list>
+              <mat-chip color="accent" selected="true " *ngIf="user.userType==2">Admin</mat-chip>
+              <mat-chip color="primary" selected="true" *ngIf="user.userType==1">User</mat-chip>
+            </mat-chip-list>
+          </td>
+          <td>
+            <button mat-menu-item (click)="update(user,i)"> Edit </button>
+          </td>
         </tr>
       </table>
       <sub>User type 2 are admins and 1 are end users.</sub>

@@ -20,13 +20,19 @@ export class User {
 
 @Injectable()
 export class UserService {
-private url:string
-    constructor(public baseService:BaseService,public http:Http) {this.url = this.baseService.url + 'user/' }
+    private url: string
+    constructor(public baseService: BaseService, public http: Http) { this.url = this.baseService.url + 'user/' }
 
     showUserList(): Observable<any> {
         return this.http.get(this.url, this.baseService.getOptions())
             .map(this.baseService.extractData)
             .catch(this.baseService.handleError)
-    }  
+    }
 
+    update(user: any): Observable<any> {
+        let body = JSON.stringify(user)
+        return this.http.put(this.url + user._id, body, this.baseService.getOptions())
+            .map(this.baseService.extractData)
+            .catch(this.baseService.handleError)
+    }
 }

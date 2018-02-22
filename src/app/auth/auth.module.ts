@@ -7,6 +7,7 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '../shared/material.module';
+import { UserDialogComponent } from './user-dialog/user-dialog.component';
 
 @NgModule({
     imports: [
@@ -16,6 +17,9 @@ import { MaterialModule } from '../shared/material.module';
         MaterialModule,
         FlexLayoutModule,
     ],
-    declarations: [LoginComponent, RegisterComponent, UsersListComponent]
+    declarations: [LoginComponent, RegisterComponent, UsersListComponent, UserDialogComponent],
+    entryComponents: [
+        UserDialogComponent
+    ],
 })
 export class AuthModule { }
