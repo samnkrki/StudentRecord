@@ -92,11 +92,6 @@ export class AuthService {
         }
     }
 
-    showUserList(): Observable<any> {
-        return this.http.get(this.url, this.baseService.getOptions())
-            .map(this.baseService.extractData)
-            .catch(this.baseService.handleError)
-    }
 
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
     selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
         password: ''
     }
 
-    constructor(public authService: AuthService, public router: Router) { }
+    constructor(public authService: AuthService, public router: Router, public snackBar: MatSnackBar) { }
 
     ngOnInit() {
     }
@@ -30,8 +31,14 @@ export class LoginComponent implements OnInit {
                 else {
                     this.router.navigate(['home'])
                 }
+                this.snackBar.open('Login Success', data.email, {
+                    duration: 2500
+                });
             }, e => {
                 console.log(e);
+                this.snackBar.open('Login Failed', JSON.parse(e._body).msg, {
+                    duration: 2500
+                });
             });
 
     }

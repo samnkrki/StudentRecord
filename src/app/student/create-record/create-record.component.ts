@@ -3,6 +3,7 @@ import { environment } from '../../../environments/environment';
 import { Student, StudentService } from '../services/student.service';
 import { Router } from '@angular/router';
 import { FileUploader } from 'ng2-file-upload';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
     selector: 'app-create-record',
@@ -10,6 +11,7 @@ import { FileUploader } from 'ng2-file-upload';
     styleUrls: ['./create-record.component.css']
 })
 export class CreateRecordComponent implements OnInit {
+    public loading: boolean=false;
     genders = [
         'Male',
         'Female',
@@ -21,7 +23,7 @@ export class CreateRecordComponent implements OnInit {
     public student: Student = new Student({})
     public students: any = [];
     uploading: boolean = false
-    constructor(public studentService: StudentService, public router: Router) { }
+    constructor(public studentService: StudentService, public router: Router, public snackBar: MatSnackBar) { }
 
     ngOnInit() {
         this.getStudents()
@@ -49,9 +51,11 @@ export class CreateRecordComponent implements OnInit {
     }
 
     getStudents() {
+        this.loading= true;
         this.studentService.listAllRecords()
             .subscribe(result => {
                 this.students = result
+                this.loading=false
             }, e => console.log(e))
     }
 
@@ -72,7 +76,15 @@ export class CreateRecordComponent implements OnInit {
         this.studentService.removeRecord(id)
             .subscribe(result => {
                 this.students.splice(i, 1)
-            }, e => console.log(e))
+                this.snackBar.open('Delete Success', result.firstName, {
+                    duration: 2500
+                });
+            }, e => {
+                console.log(e)
+                this.snackBar.open('Error while deleting', JSON.parse(e._body).msg, {
+                    duration: 2500
+                });
+            })
     }
 
 
@@ -85,7 +97,15 @@ export class CreateRecordComponent implements OnInit {
             .subscribe(result => {
                 this.resetForm()
                 this.getStudents()
-            }, e => console.log(e))
+                this.snackBar.open('Update Success', result.firstName, {
+                    duration: 2500
+                });
+            }, e => {
+                console.log(e)
+                this.snackBar.open('Update Failed', JSON.parse(e._body.msg), {
+                    duration: 2500
+                });
+            })
 
     }
 
@@ -94,7 +114,15 @@ export class CreateRecordComponent implements OnInit {
             .subscribe(result => {
                 this.students.push(result)
                 this.resetForm()
-            }, e => console.log(e))
+                this.snackBar.open('Record added Successfully', result.firstName, {
+                    duration: 2500
+                });
+            }, e => {
+                console.log(e)
+                this.snackBar.open('Failure Adding Record', JSON.parse(e._body.msg), {
+                    duration: 2500
+                });
+            })
     }
 
     viewAll(id: string) {

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {AppRoutingModule} from './app.route.module'
+import { AppRoutingModule } from './app.route.module'
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
@@ -13,7 +13,7 @@ import { MaterialModule } from './shared/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
 import { StudentModule } from './student/student.module';
-
+import { UserService } from './auth/services/user.service';
 
 @NgModule({
     declarations: [
@@ -31,7 +31,7 @@ import { StudentModule } from './student/student.module';
         StudentModule,
 
     ],
-    providers: [BaseService,AuthService,AuthGuard],
+    providers: [BaseService, AuthService, AuthGuard, UserService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
