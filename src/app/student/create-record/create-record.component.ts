@@ -45,6 +45,9 @@ export class CreateRecordComponent implements OnInit {
         this.uploader.onSuccessItem = (item: any, response: any, status: any, headers: any) => {
             let res = JSON.parse(response);
             this.student.image = res.filename;
+            this.snackBar.open('Image upload success!!',this.student.image, {
+                duration: 2500
+            });
             console.log("ImageUpload:uploaded:", item, status, response);
 
         };

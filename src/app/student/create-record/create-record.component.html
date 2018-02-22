@@ -72,11 +72,12 @@
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+    <button mat-raised-button color="primary" (click)="resetForm()">Reset</button>
     </mat-card-actions>
   </mat-card>
 </div>
 
-<div fxLayout="column" fxLayoutAlign=" center" fxFlex="80">
+<div fxLayout="column" fxLayoutAlign="space around center" fxFlex="100">
     <div *ngIf="isLoading">
         <mat-spinner></mat-spinner>
     </div>

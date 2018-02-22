@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StudentService, Student } from '../services/student.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
+import { environment } from '../../../environments/environment';
 
 @Component({
     selector: 'app-list-record',
@@ -13,13 +14,14 @@ export class ListRecordComponent implements OnInit {
     public loading: boolean = false;
     public student: Student = new Student({})
     students: any = []
+    public staticUrl: string = environment.staticUrl
     constructor(public studentService: StudentService, public router: Router,public snackBar:MatSnackBar) { }
 
     ngOnInit() {
-        this.list()
+        this.getStudents()
     }
 
-    list() {
+    getStudents() {
         this.loading = true
         this.studentService.listAllRecords()
             .subscribe(result => {
