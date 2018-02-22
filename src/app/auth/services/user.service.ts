@@ -21,7 +21,7 @@ export class User {
 @Injectable()
 export class UserService {
 private url:string
-    constructor(public baseService:BaseService,public http:Http) {this.url = this.baseService.url = 'user/' }
+    constructor(public baseService:BaseService,public http:Http) {this.url = this.baseService.url + 'user/' }
 
     showUserList(): Observable<any> {
         return this.http.get(this.url, this.baseService.getOptions())

@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
         this.authService.redirectUrl = url;
 
         // Navigate to the login page with extras
-        this.router.navigate(['']);//maybe to login or register page
+        this.router.navigate(['home']);//maybe to login or register page
         return false;
     }
 }

@@ -1,6 +1,6 @@
 <!doctype html>
 <mat-toolbar color="primary" class="example-toolbar">
-  <span >
+  <span>
     <button mat-button (click)="home()">
       <h1>{{title}}</h1>
     </button>
@@ -18,20 +18,25 @@
     <span class="example-spacer"></span>
 
     <span *ngIf="isAdmin">
-      <a [routerLink]="['/create']" routerLinkActive="active"></a>
+      <a [routerLink]="['/create']" routerLinkActive="active">
+        <i class="material-icons">create</i>
+      </a>
     </span>
+
+    <span class="example-spacer"></span>
+    <span *ngIf="isAdmin || isUser">
+      <a [routerLink]="['/list']" routerLinkActive="active">
+        <i class="material-icons">view_list</i>
+      </a>
+    </span>
+
 
     <span class="example-spacer"></span>
 
     <span *ngIf="isAdmin">
-      <a [routerLink]="['/users']" routerLinkActive="active"><i class="material-icons">account_box</i></a>
-    </span>
-
-    <span class="example-spacer"></span>
-
-    <span *ngIf="isAdmin || isUser">
-      <a [routerLink]="['/list']" routerLinkActive="active">
-        <i class="material-icons">view_list</i></a>
+      <a [routerLink]="['/users']" routerLinkActive="active">
+        <i class="material-icons">account_box</i>
+      </a>
     </span>
 
     <button mat-button [matMenuTriggerFor]="menu">{{user.name}}</button>

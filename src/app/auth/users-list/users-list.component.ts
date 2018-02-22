@@ -24,7 +24,9 @@ export class UsersListComponent implements OnInit {
             .subscribe(result => {
                 this.userInfo = result
                 this.loading = false
-            }, e => console.log(e))
+            }, e => {
+                console.log(e)
+            })
     }
 
 }
