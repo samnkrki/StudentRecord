@@ -25,6 +25,6 @@ import { FileUploadModule} from 'ng2-file-upload'
         FileUploadModule,
     ],
     declarations: [CreateRecordComponent, ListRecordComponent, ProfileComponent],
-    providers: [StudentService]
+    providers: [StudentService, ]
 })
 export class StudentModule { }

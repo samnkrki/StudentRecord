@@ -38,7 +38,7 @@ export class AuthService {
     constructor(
         public http: Http,
         public baseService: BaseService,
-        public router: Router
+        public router: Router,
     ) {
         this.url = this.baseService.url + 'auth/'
     }
@@ -91,7 +91,6 @@ export class AuthService {
             return false;
         }
     }
-
 
 
 }

@@ -14,6 +14,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
 import { StudentModule } from './student/student.module';
 import { UserService } from './auth/services/user.service';
+import { RoleGuardService } from './auth/services/role-guard.service';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,7 @@ import { UserService } from './auth/services/user.service';
         StudentModule,
 
     ],
-    providers: [BaseService, AuthService, AuthGuard, UserService],
+    providers: [BaseService, AuthService, AuthGuard, UserService,RoleGuardService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
